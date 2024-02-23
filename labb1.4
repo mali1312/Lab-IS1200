@@ -1,0 +1,22 @@
+funktion:
+	li $a0,0 #i=0
+	li $t1,4711 #loopend condition
+	li $a2,10 #initierar ms
+	
+while: #while loop
+	slt $t0,$0,$a2 #sätter t1 till 1 om a2>0, annars är den 0
+	beq $t0,$0, done #om a2>0 lämna while loopen
+	addi $a2,$a2,-1
+loop: #for loop
+	slt $t2,$a0,$t1 #if i < 4711
+	beq $t2,$0, loopend #ecit if equals to 0
+ # does nothing
+ 	addi $a0,$a0,1
+ 	j loop
+loopend:
+	j while
+	nop
+	
+done: 
+	j done
+	nop
